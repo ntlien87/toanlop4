@@ -3,6 +3,10 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useMath } from "../context/MathContext.jsx";
 import Question from "./Question.jsx";
 import Feedback from "./Feedback.jsx";
+import correctSound from "../assets/sounds/correct.mp3";
+import incorrectSound from "../assets/sounds/incorrect.mp3";
+import winSound from "../assets/sounds/win.mp3";
+import failSound from "../assets/sounds/fail.mp3";
 
 function QuizPage() {
   const { topicId } = useParams();
@@ -17,6 +21,10 @@ function QuizPage() {
   const [showFeedback, setShowFeedback] = useState(false);
   const [answeredCount, setAnsweredCount] = useState(0);
   const [showTheory, setShowTheory] = useState(true);
+
+  const playSound = (soundFile) => {
+    new Audio(soundFile).play();
+  };
 
   useEffect(() => {
     if (!topic || topic.isLocked) {
@@ -54,9 +62,14 @@ function QuizPage() {
     const correct = selectedOption === currentQuestion.correctAnswer;
     setIsCorrect(correct);
     setShowFeedback(true);
+
     if (correct) {
+      playSound(correctSound);
       setScore((prevScore) => prevScore + 1);
+    } else {
+      playSound(incorrectSound);
     }
+
     setAnsweredCount((prev) => prev + 1);
   };
 
@@ -65,6 +78,12 @@ function QuizPage() {
     setSelectedOption(null);
     setIsCorrect(null);
     if (answeredCount === topic.questions.length) {
+      // Kiểm tra điểm để phát âm thanh phù hợp
+      if (score === topic.questions.length) {
+        playSound(winSound);
+      } else {
+        playSound(failSound);
+      }
       updateTopicProgress(topic.id, score);
       navigate(`/result/${topic.id}`);
     } else {
