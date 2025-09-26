@@ -1,7 +1,7 @@
 import React from "react";
 import { FaCheck, FaTimes } from "react-icons/fa";
 
-function Feedback({ isCorrect, correctAnswer, onContinue }) {
+function Feedback({ isCorrect, onContinue }) {
   const bgColor = isCorrect ? "bg-green-500" : "bg-red-500";
   const textColor = "text-white";
 
@@ -24,12 +24,6 @@ function Feedback({ isCorrect, correctAnswer, onContinue }) {
             <p className="text-2xl font-bold mb-1">
               {isCorrect ? "Tuyệt vời! Đúng rồi!" : "Sai rồi..."}
             </p>
-            {!isCorrect && (
-              <p className="text-lg">
-                Đáp án đúng là:{" "}
-                <span className="font-bold">{correctAnswer}</span>
-              </p>
-            )}
           </div>
         </div>
         <button

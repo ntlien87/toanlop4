@@ -43,7 +43,8 @@ function QuizPage() {
   const currentQuestion = topic.questions[currentQuestionIndex];
 
   const handleOptionSelect = (option) => {
-    if (selectedOption === null) {
+    // Cho phép chọn lại đáp án khác nếu chưa bấm "Kiểm tra"
+    if (!showFeedback) {
       setSelectedOption(option);
     }
   };
@@ -122,7 +123,7 @@ function QuizPage() {
               question={currentQuestion}
               selectedOption={selectedOption}
               onSelectOption={handleOptionSelect}
-              isAnswered={selectedOption !== null}
+              isAnswered={showFeedback}
               correctAnswer={currentQuestion.correctAnswer}
             />
           )}
@@ -143,11 +144,7 @@ function QuizPage() {
         </div>
       )}
       {showFeedback && (
-        <Feedback
-          isCorrect={isCorrect}
-          correctAnswer={currentQuestion.correctAnswer}
-          onContinue={handleContinue}
-        />
+        <Feedback isCorrect={isCorrect} onContinue={handleContinue} />
       )}
     </div>
   );
