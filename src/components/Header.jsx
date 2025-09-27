@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useMath } from "../context/MathContext.jsx"; // Để có thể reset tiến độ
+import { useMath } from "../context/MathContext.jsx";
+import { FaFire } from "react-icons/fa";
 
 function Header() {
-  const { resetProgress } = useMath();
+  const { resetProgress, winStreak } = useMath();
 
   return (
     <header className="bg-gradient-to-r from-blue-500 to-green-500 text-white p-4 shadow-lg">
@@ -15,7 +16,29 @@ function Header() {
           Toán Lớp 4
         </Link>
         <nav>
-          <ul className="flex space-x-6">
+          <ul className="flex items-center space-x-6">
+            <li
+              className="relative flex items-center space-x-2 text-yellow-300 group"
+              title={
+                winStreak > 0
+                  ? `Bạn đã học ${winStreak} ngày liên tiếp!`
+                  : "Hoàn thành một bài học để bắt đầu chuỗi ngày học!"
+              }
+            >
+              <FaFire
+                className={`text-3xl transition-all duration-300 ${
+                  winStreak > 0
+                    ? "text-orange-400 animate-pulse"
+                    : "text-gray-400"
+                }`}
+              />
+              <span className="font-bold text-2xl">{winStreak}</span>
+              <div className="absolute bottom-full mb-2 hidden group-hover:block bg-gray-800 text-white text-sm rounded-md px-3 py-1 whitespace-nowrap shadow-lg">
+                {winStreak > 0
+                  ? `Chuỗi ${winStreak} ngày học!`
+                  : "Bắt đầu học nào!"}
+              </div>
+            </li>
             <li>
               <Link
                 to="/learn"
@@ -24,7 +47,6 @@ function Header() {
                 Học
               </Link>
             </li>
-            {/* Thêm các mục điều hướng khác nếu cần */}
             <li>
               <button
                 onClick={resetProgress}

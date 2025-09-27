@@ -21,6 +21,29 @@ export const MathProvider = ({ children }) => {
     return savedProgress ? JSON.parse(savedProgress) : {};
   });
 
+  const [winStreak, setWinStreak] = useState(() => {
+    const savedStreak = localStorage.getItem("mathAppWinStreak");
+    const lastCompletionDate = localStorage.getItem(
+      "mathAppLastCompletionDate"
+    );
+
+    if (savedStreak && lastCompletionDate) {
+      const today = new Date().toLocaleDateString();
+      const lastDate = new Date(lastCompletionDate).toLocaleDateString();
+      const yesterday = new Date(
+        new Date().setDate(new Date().getDate() - 1)
+      ).toLocaleDateString();
+
+      // Reset streak if user missed a day
+      if (lastDate !== today && lastDate !== yesterday) {
+        localStorage.setItem("mathAppWinStreak", "0");
+        return 0;
+      }
+      return parseInt(savedStreak, 10);
+    }
+    return 0;
+  });
+
   useEffect(() => {
     // Khi khởi tạo topics, shuffle options của từng question
     const initialTopics = data.map((topicData, index) => {
@@ -51,12 +74,46 @@ export const MathProvider = ({ children }) => {
     localStorage.setItem("mathAppProgress", JSON.stringify(userProgress));
   }, [userProgress]);
 
+  useEffect(() => {
+    localStorage.setItem("mathAppWinStreak", winStreak.toString());
+  }, [winStreak]);
+
   const updateTopicProgress = (topicId, score) => {
+    const topic = data.find((t) => t.topic.replace(/\s/g, "_") === topicId);
+    const totalQuestions = topic?.questions?.length || 0;
+    const isPerfectScore = score === totalQuestions;
+    const today = new Date().toLocaleDateString();
+    const lastCompletionDate = localStorage.getItem(
+      "mathAppLastCompletionDate"
+    );
+
+    if (isPerfectScore) {
+      // Chỉ tăng streak nếu ngày hoàn thành gần nhất không phải là hôm nay
+      if (
+        !lastCompletionDate ||
+        new Date(lastCompletionDate).toLocaleDateString() !== today
+      ) {
+        setWinStreak((prevStreak) => {
+          const lastDate = lastCompletionDate
+            ? new Date(lastCompletionDate).toLocaleDateString()
+            : null;
+          const yesterday = new Date(
+            new Date().setDate(new Date().getDate() - 1)
+          ).toLocaleDateString();
+          // Nếu ngày cuối là hôm qua thì tăng, ngược lại reset về 1
+          const newStreak = lastDate === yesterday ? prevStreak + 1 : 1;
+          return newStreak;
+        });
+        localStorage.setItem(
+          "mathAppLastCompletionDate",
+          new Date().toISOString()
+        );
+      }
+    }
+    // Không reset streak nếu không đạt điểm tuyệt đối, chỉ không tăng
+
     setUserProgress((prevProgress) => {
-      // Lấy số câu hỏi của topic hiện tại
-      const topic = data.find((t) => t.topic.replace(/\s/g, "_") === topicId);
-      const totalQuestions = topic?.questions?.length || 10;
-      const isCompleted = score === totalQuestions;
+      const isCompleted = score > 0; // Mở khóa bài tiếp theo chỉ cần có điểm
       const newProgress = {
         ...prevProgress,
         [topicId]: {
@@ -73,7 +130,10 @@ export const MathProvider = ({ children }) => {
   // Reset toàn bộ tiến độ người dùng
   const resetProgress = () => {
     localStorage.removeItem("mathAppProgress");
+    localStorage.removeItem("mathAppWinStreak");
+    localStorage.removeItem("mathAppLastCompletionDate");
     setUserProgress({});
+    setWinStreak(0);
     // Cập nhật lại topics để mở khóa topic đầu tiên
     const initialTopics = data.map((topicData, index) => ({
       ...topicData,
@@ -88,6 +148,7 @@ export const MathProvider = ({ children }) => {
       value={{
         topics,
         userProgress,
+        winStreak,
         updateTopicProgress,
         getTopicById,
         resetProgress,

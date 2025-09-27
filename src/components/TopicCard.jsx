@@ -1,11 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useMath } from "../context/MathContext.jsx";
-import { FaLock, FaCheckCircle, FaStar, FaPlay } from "react-icons/fa"; // Import icons
+import { FaLock, FaCheckCircle, FaStar, FaPlay } from "react-icons/fa";
+import clickMp3 from "../assets/sounds/click.mp3";
+
+const clickSound = new Audio(clickMp3);
+const playClickSound = () => {
+  clickSound.currentTime = 0;
+  clickSound.play();
+};
 
 function TopicCard({ topic, order }) {
   const { userProgress } = useMath();
   const progress = userProgress[topic.id] || { score: 0, isCompleted: false };
+  const navigate = useNavigate();
 
   const cardClasses = `
     relative w-64 h-48 flex flex-col items-center justify-center p-4 rounded-xl shadow-lg m-4
@@ -37,13 +45,16 @@ function TopicCard({ topic, order }) {
             Hoàn thành ({progress.score}/10)
           </p>
           <div className="w-full flex justify-center mt-4">
-            <Link
-              to={`/quiz/${topic.id}`}
+            <button
               className="bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded-full text-base font-semibold flex items-center shadow-md"
               title="Làm lại bài học"
+              onClick={() => {
+                playClickSound();
+                navigate(`/quiz/${topic.id}`);
+              }}
             >
               <FaPlay className="mr-2" /> Luyện tập
-            </Link>
+            </button>
           </div>
         </>
       );
@@ -54,12 +65,15 @@ function TopicCard({ topic, order }) {
           <h3 className="text-xl font-semibold text-center">{topic.topic}</h3>
           <p className="text-sm mt-2">Tiến độ: {progress.score}/10</p>
           <div className="w-full flex justify-center mt-4">
-            <Link
-              to={`/quiz/${topic.id}`}
+            <button
               className="bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded-full text-base font-semibold flex items-center shadow-md"
+              onClick={() => {
+                playClickSound();
+                navigate(`/quiz/${topic.id}`);
+              }}
             >
               <FaPlay className="mr-2" /> Bắt đầu
-            </Link>
+            </button>
           </div>
         </>
       );

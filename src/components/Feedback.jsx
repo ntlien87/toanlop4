@@ -28,7 +28,7 @@ function Feedback({ isCorrect, onContinue }) {
         </div>
         <button
           onClick={onContinue}
-          className="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-6 rounded-full text-xl shadow-md active:scale-95 transition-transform"
+          className="bg-white text-blue-600 hover:bg-gray-100 font-bold py-2 px-4 rounded-full text-base md:py-3 md:px-6 md:text-xl shadow-md active:scale-95 transition-transform"
         >
           Tiếp Tục
         </button>

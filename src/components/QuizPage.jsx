@@ -7,6 +7,7 @@ import correctSound from "../assets/sounds/correct.mp3";
 import incorrectSound from "../assets/sounds/incorrect.mp3";
 import winSound from "../assets/sounds/win.mp3";
 import failSound from "../assets/sounds/fail.mp3";
+import clickMp3 from "../assets/sounds/click.mp3";
 
 function QuizPage() {
   const { topicId } = useParams();
@@ -24,6 +25,11 @@ function QuizPage() {
 
   const playSound = (soundFile) => {
     new Audio(soundFile).play();
+  };
+  const playClickSound = () => {
+    const clickSound = new Audio(clickMp3);
+    clickSound.currentTime = 0;
+    clickSound.play();
   };
 
   useEffect(() => {
@@ -74,6 +80,7 @@ function QuizPage() {
   };
 
   const handleContinue = () => {
+    playClickSound();
     setShowFeedback(false);
     setSelectedOption(null);
     setIsCorrect(null);
@@ -99,7 +106,7 @@ function QuizPage() {
     <div className="flex flex-col items-center justify-center p-4">
       {showTheory && (
         <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-          <div className="bg-white rounded-xl shadow-2xl p-8 max-w-lg w-full relative animate-fade-in">
+          <div className="bg-white rounded-xl shadow-2xl p-4 sm:p-6 md:p-8 w-full max-w-xs sm:max-w-md md:max-w-lg relative animate-fade-in mx-auto">
             <h2 className="text-2xl font-bold text-blue-700 mb-4 text-center">
               Lý thuyết chủ đề
             </h2>
@@ -110,7 +117,10 @@ function QuizPage() {
               {topic.theory || "(Chưa có lý thuyết cho chủ đề này)"}
             </div>
             <button
-              onClick={() => setShowTheory(false)}
+              onClick={() => {
+                playClickSound();
+                setShowTheory(false);
+              }}
               className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full text-xl mt-2 transition-all"
             >
               Bắt đầu làm bài
@@ -122,7 +132,10 @@ function QuizPage() {
         <div className="w-full max-w-2xl bg-white rounded-xl shadow-lg p-6">
           <div className="flex items-center mb-6">
             <button
-              onClick={() => navigate("/learn")}
+              onClick={() => {
+                playClickSound();
+                navigate("/learn");
+              }}
               className="text-gray-500 hover:text-gray-700 text-2xl mr-4"
             >
               &times;
@@ -147,7 +160,10 @@ function QuizPage() {
             />
           )}
           <button
-            onClick={handleSubmitAnswer}
+            onClick={() => {
+              playClickSound();
+              handleSubmitAnswer();
+            }}
             disabled={selectedOption === null || showFeedback}
             className={`
               w-full py-4 mt-8 rounded-full text-2xl font-bold transition-all duration-200

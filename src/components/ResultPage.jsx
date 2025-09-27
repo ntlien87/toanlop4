@@ -3,6 +3,14 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useMath } from "../context/MathContext.jsx";
 import { FaTrophy, FaRedo, FaHome, FaTimes, FaPlay } from "react-icons/fa";
 
+// Hàm phát âm thanh click
+import clickMp3 from "../assets/sounds/click.mp3";
+const clickSound = new Audio(clickMp3);
+const playClickSound = () => {
+  clickSound.currentTime = 0;
+  clickSound.play();
+};
+
 function ResultPage() {
   const { topicId } = useParams();
   const navigate = useNavigate();
@@ -27,14 +35,17 @@ function ResultPage() {
   const canGoNext = isPassed && nextTopic && !nextTopic.isLocked;
 
   const handleGoToLearn = () => {
+    playClickSound();
     navigate("/learn");
   };
 
   const handleRetryTopic = () => {
+    playClickSound();
     navigate(`/quiz/${topicId}`);
   };
 
   const handleGoToNextTopic = () => {
+    playClickSound();
     if (nextTopic) {
       navigate(`/quiz/${nextTopic.id}`);
     }
