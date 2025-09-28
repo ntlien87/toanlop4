@@ -2,7 +2,7 @@ const data = [
   {
     topic: "Ôn tập các số đến 100000",
     theory:
-      "Số tự nhiên đến 100000 gồm các chữ số từ 0 đến 9, mỗi số có thể có tối đa 5 chữ số. Học sinh cần biết đọc, viết, so sánh và sắp xếp các số này.",
+      "Số tự nhiên đến 100000 gồm các chữ số từ 0 đến 9, mỗi số có tối đa 5 chữ số.\n      Cách đọc số: Đọc từ trái sang phải theo thứ tự hàng trăm nghìn, chục nghìn, nghìn, trăm, chục, đơn vị.\n      Cách viết số: Viết từ trái sang phải theo đúng giá trị hàng.\n      Cách so sánh số:\n      - So sánh số chữ số trước (số có nhiều chữ số hơn thì lớn hơn)\n      - Nếu cùng số chữ số, so sánh từng chữ số từ trái sang phải cho đến khi thấy khác nhau\n      Cách sắp xếp: Sắp xếp theo thứ tự tăng dần hoặc giảm dần dựa trên cách so sánh số.",
     questions: [
       {
         id: 1,
@@ -76,7 +76,7 @@ const data = [
   {
     topic: "Ôn tập phép cộng, phép trừ",
     theory:
-      "Phép cộng và phép trừ là hai phép tính cơ bản. Cần nhớ các tính chất và cách đặt tính rồi tính.",
+      "Phép cộng và phép trừ là hai phép tính cơ bản.\n      Cách đặt tính cộng:\n      - Xếp các số thẳng cột, chữ số cùng hàng thẳng với nhau\n      - Cộng từ phải sang trái, từ hàng đơn vị\n      - Nhớ 1 nếu tổng từng cột ≥ 10\n      Cách đặt tính trừ:\n      - Số bị trừ viết trên, số trừ viết dưới\n      - Các chữ số cùng hàng thẳng cột\n      - Trừ từ phải sang trái\n      - Nếu chữ số trên nhỏ hơn chữ số dưới, mượn 1 đơn vị của hàng bên trái\n      Kiểm tra: Với phép trừ, lấy số bị trừ trừ đi kết quả sẽ ra số trừ.",
     questions: [
       {
         id: 1,
@@ -145,7 +145,7 @@ const data = [
   {
     topic: "Ôn tập phép nhân, phép chia",
     theory:
-      "Phép nhân là tổng của nhiều số hạng bằng nhau. Phép chia là phép toán ngược với phép nhân.",
+      "Phép nhân là tổng của nhiều số hạng bằng nhau. Phép chia là phép toán ngược với phép nhân.\n      Cách giải phép nhân:\n      - Đặt tính thẳng hàng, viết số nhân dưới số bị nhân\n      - Nhân từ phải sang trái với từng chữ số của số nhân\n      - Nhớ số hàng chục nếu có\n      - Cộng các kết quả từng phép nhân\n      Cách giải phép chia:\n      - Chia từ trái sang phải\n      - Lấy số chia nhân với thương tạm\n      - So sánh với số bị chia và tìm số dư\n      - Kiểm tra: Số chia × Thương + Số dư = Số bị chia",
     questions: [
       {
         id: 21,
@@ -215,7 +215,8 @@ const data = [
   },
   {
     topic: "Số chẵn, số lẻ",
-    theory: "Số chẵn là số chia hết cho 2. Số lẻ là số không chia hết cho 2.",
+    theory:
+      "Số chẵn là số chia hết cho 2, số lẻ là số không chia hết cho 2.\n      Cách nhận biết:\n      - Số chẵn: Chữ số cuối cùng là 0,2,4,6,8\n      - Số lẻ: Chữ số cuối cùng là 1,3,5,7,9\n      Quy tắc tính:\n      - Tổng hai số chẵn là số chẵn\n      - Tổng hai số lẻ là số chẵn\n      - Tổng một số chẵn và một số lẻ là số lẻ\n      - Tích của số chẵn với số bất kỳ là số chẵn\n      - Tích của hai số lẻ là số lẻ",
     questions: [
       {
         id: 31,
@@ -282,161 +283,160 @@ const data = [
   {
     topic: "Bài toán liên quan đến rút về đơn vị",
     theory:
-      "Giải bài toán rút về đơn vị bằng cách tìm giá trị của một đơn vị rồi nhân lên số lượng cần tìm.",
+      "Bài toán rút về đơn vị giải qua 3 bước:\n      Bước 1: Tìm giá trị của một đơn vị\n      - Lấy tổng giá trị chia cho số lượng đơn vị đã biết\n      Bước 2: Kiểm tra kết quả bước 1\n      - Nhân kết quả với số lượng ban đầu phải ra giá trị ban đầu\n      Bước 3: Tính kết quả cần tìm\n      - Nhân giá trị một đơn vị với số lượng cần tìm\n      Lưu ý: Đơn vị phải cùng loại khi thực hiện phép tính",
     questions: [
       {
         id: 41,
         question:
-          "Có 24 cái kẹo chia đều cho 3 bạn. Hỏi 5 bạn được bao nhiêu cái kẹo?",
-        options: ["40", "30", "35", "45"],
-        correctAnswer: "40",
+          "4 cái bánh có giá 20000 đồng. Hỏi 7 cái bánh có giá bao nhiêu đồng?",
+        options: ["30000 đồng", "35000 đồng", "40000 đồng", "45000 đồng"],
+        correctAnswer: "35000 đồng",
       },
       {
         id: 42,
         question:
-          "Một người đi xe đạp trong 3 giờ được 36km. Hỏi trong 5 giờ người đó đi được bao nhiêu km?",
-        options: ["60", "50", "70", "80"],
-        correctAnswer: "60",
+          "3 quyển vở giá 15000 đồng. Hỏi 10 quyển vở giá bao nhiêu đồng?",
+        options: ["45000 đồng", "50000 đồng", "55000 đồng", "60000 đồng"],
+        correctAnswer: "50000 đồng",
       },
       {
         id: 43,
         question:
-          "5 quyển vở giá 40 nghìn đồng. Hỏi 8 quyển vở giá bao nhiêu nghìn đồng?",
-        options: ["64", "56", "72", "80"],
-        correctAnswer: "64",
+          "2 cây bút chì có giá 6000 đồng. Hỏi 9 cây bút chì có giá bao nhiêu đồng?",
+        options: ["24000 đồng", "27000 đồng", "30000 đồng", "33000 đồng"],
+        correctAnswer: "27000 đồng",
       },
       {
         id: 44,
-        question:
-          "Một đội công nhân sửa đường trong 4 ngày được 120m. Hỏi trong 7 ngày đội đó sửa được bao nhiêu mét đường?",
-        options: ["210", "180", "240", "200"],
-        correctAnswer: "210",
+        question: "5 kg gạo giá 75000 đồng. Hỏi 12 kg gạo giá bao nhiêu đồng?",
+        options: ["165000 đồng", "170000 đồng", "175000 đồng", "180000 đồng"],
+        correctAnswer: "180000 đồng",
       },
       {
         id: 45,
         question:
-          "Có 4 rổ cam, mỗi rổ có số cam như nhau. Tổng cộng có 32 quả cam. Hỏi 6 rổ cam như thế có bao nhiêu quả?",
-        options: ["48", "40", "56", "52"],
-        correctAnswer: "48",
+          "6 quả cam có khối lượng 1200 gam. Hỏi 15 quả cam như thế có khối lượng bao nhiêu gam?",
+        options: ["2500 gam", "2800 gam", "3000 gam", "3200 gam"],
+        correctAnswer: "3000 gam",
       },
       {
         id: 46,
         question:
-          "Một cửa hàng bán 3 cái áo hết 270 nghìn đồng. Hỏi bán 5 cái áo như thế hết bao nhiêu nghìn đồng?",
-        options: ["450", "360", "540", "400"],
-        correctAnswer: "450",
+          "8 học sinh cần 24 quyển vở. Hỏi 12 học sinh cần bao nhiêu quyển vở?",
+        options: ["30 quyển", "32 quyển", "36 quyển", "40 quyển"],
+        correctAnswer: "36 quyển",
       },
       {
         id: 47,
         question:
-          "Một vòi nước chảy vào bể trong 2 giờ được 60 lít nước. Hỏi trong 7 giờ vòi đó chảy được bao nhiêu lít nước?",
-        options: ["210", "180", "240", "200"],
-        correctAnswer: "210",
+          "4 giờ làm được 20 bài tập. Hỏi 7 giờ làm được bao nhiêu bài tập (với tốc độ không đổi)?",
+        options: ["30 bài", "35 bài", "40 bài", "45 bài"],
+        correctAnswer: "35 bài",
       },
       {
         id: 48,
         question:
-          "Có 28 bông hoa chia đều vào 4 lọ. Hỏi 9 lọ hoa như thế có bao nhiêu bông?",
-        options: ["63", "54", "72", "81"],
-        correctAnswer: "63",
+          "10 người ăn hết 5 kg cơm. Hỏi 6 người ăn hết bao nhiêu kg cơm?",
+        options: ["2 kg", "3 kg", "4 kg", "5 kg"],
+        correctAnswer: "3 kg",
       },
       {
         id: 49,
         question:
-          "Một người mua 6kg gạo hết 90 nghìn đồng. Hỏi người đó mua 10kg gạo hết bao nhiêu nghìn đồng?",
-        options: ["150", "120", "180", "200"],
-        correctAnswer: "150",
+          "3 cái kẹo có giá 3000 đồng. Hỏi với 15000 đồng mua được bao nhiêu cái kẹo?",
+        options: ["12 cái", "15 cái", "18 cái", "20 cái"],
+        correctAnswer: "15 cái",
       },
       {
         id: 50,
         question:
-          "Một xe ô tô đi quãng đường 120km trong 2 giờ. Hỏi trong 5 giờ xe đó đi được bao nhiêu km nếu vận tốc không đổi?",
-        options: ["300", "240", "360", "280"],
-        correctAnswer: "300",
+          "2 hộp sữa có khối lượng 400 gam. Hỏi 5 hộp sữa có khối lượng bao nhiêu gam?",
+        options: ["800 gam", "1000 gam", "1200 gam", "1400 gam"],
+        correctAnswer: "1000 gam",
       },
     ],
   },
   {
     topic: "Bài toán giải bằng ba bước tính",
     theory:
-      "Bài toán ba bước tính thường gồm các phép tính liên tiếp để tìm ra đáp số cuối cùng.",
+      "Bài toán ba bước tính được giải theo trình tự:\n      Bước 1: Tìm kết quả của phép tính đầu tiên\n      - Thường là phép tính tìm tổng hoặc hiệu ban đầu\n      Bước 2: Sử dụng kết quả bước 1 để tính tiếp\n      - Có thể là phép cộng, trừ, nhân hoặc chia\n      Bước 3: Dùng kết quả bước 2 để tính ra đáp số cuối cùng\n      Lưu ý:\n      - Đọc kỹ đề bài để xác định thứ tự thực hiện các phép tính\n      - Ghi chép cẩn thận kết quả từng bước\n      - Kiểm tra lại kết quả cuối cùng",
     questions: [
       {
         id: 51,
         question:
-          "Một cửa hàng có 3 thùng sữa, mỗi thùng có 24 hộp. Cửa hàng đã bán được 25 hộp. Hỏi cửa hàng còn lại bao nhiêu hộp sữa?",
-        options: ["47", "57", "67", "77"],
-        correctAnswer: "47",
+          "Một cửa hàng có 3 thùng bánh, mỗi thùng có 20 cái. Buổi sáng bán được 25 cái, buổi chiều bán được 15 cái. Hỏi cửa hàng còn lại bao nhiêu cái bánh?",
+        options: ["15 cái", "20 cái", "25 cái", "30 cái"],
+        correctAnswer: "20 cái", // Bước 1: 3*20=60 cái; Bước 2: 60-25=35 cái; Bước 3: 35-15=20 cái
       },
       {
         id: 52,
         question:
-          "Trong vườn có 3 hàng cây, mỗi hàng có 15 cây. Người ta trồng thêm 10 cây nữa. Hỏi trong vườn có tất cả bao nhiêu cây?",
-        options: ["55", "45", "65", "75"],
-        correctAnswer: "55",
+          "Một trường học có 2 lớp, mỗi lớp có 25 học sinh. Hôm nay có 10 học sinh nghỉ học và 5 học sinh đi thi. Hỏi số học sinh có mặt ở trường?",
+        options: ["30 học sinh", "35 học sinh", "40 học sinh", "45 học sinh"],
+        correctAnswer: "35 học sinh", // Bước 1: 2*25=50 học sinh; Bước 2: 50-10=40; Bước 3: 40-5=35
       },
       {
         id: 53,
         question:
-          "Lan có 5 gói kẹo, mỗi gói có 12 viên. Lan cho bạn 15 viên. Hỏi Lan còn lại bao nhiêu viên kẹo?",
-        options: ["45", "35", "55", "65"],
-        correctAnswer: "45",
+          "Một cửa hàng có 50 quyển vở. Buổi sáng bán được 15 quyển, buổi trưa bán được 20 quyển. Hỏi cửa hàng cần nhập thêm bao nhiêu quyển vở để có 30 quyển?",
+        options: ["10 quyển", "15 quyển", "20 quyển", "25 quyển"],
+        correctAnswer: "15 quyển", // Bước 1: 50-15=35 quyển; Bước 2: 35-20=15 còn lại; Bước 3: 30-15=15 cần thêm
       },
       {
         id: 54,
         question:
-          "Một lớp học có 4 tổ, mỗi tổ có 8 học sinh. Có 3 học sinh vắng mặt. Hỏi lớp đó có bao nhiêu học sinh đi học?",
-        options: ["29", "25", "32", "35"],
-        correctAnswer: "29",
+          "Mẹ mua 3 hộp kẹo, mỗi hộp có 12 cái. Mẹ cho An 10 cái và Bình 8 cái. Hỏi còn lại bao nhiêu cái kẹo?",
+        options: ["14 cái", "16 cái", "18 cái", "20 cái"],
+        correctAnswer: "18 cái", // Bước 1: 3*12=36 cái; Bước 2: 36-10=26 cái; Bước 3: 26-8=18 cái
       },
       {
         id: 55,
         question:
-          "Một trại chăn nuôi có 3 chuồng gà, mỗi chuồng có 20 con. Sau đó bán đi 10 con. Hỏi trại còn lại bao nhiêu con gà?",
-        options: ["50", "40", "60", "70"],
-        correctAnswer: "50",
+          "Một cửa hàng có 40 cây bút. Sáng bán được 12 cây, chiều bán được 8 cây. Hỏi phải nhập thêm bao nhiêu cây bút để có 30 cây?",
+        options: ["5 cây", "10 cây", "15 cây", "20 cây"],
+        correctAnswer: "10 cây", // Bước 1: 40-12=28 cây; Bước 2: 28-8=20 còn lại; Bước 3: 30-20=10 cần thêm
       },
       {
         id: 56,
         question:
-          "Một mảnh vườn hình chữ nhật có chiều dài 15m, chiều rộng 8m. Người ta trồng cây xung quanh vườn, mỗi mét trồng 2 cây. Hỏi cần bao nhiêu cây?",
-        options: ["92", "46", "30", "16"],
-        correctAnswer: "92", // (15+8)*2 * 2 = 92
+          "Lan có 45 nhãn vở. Em cho bạn Mai 15 nhãn và cho bạn Hoa 10 nhãn. Hỏi Lan cần xin mẹ thêm bao nhiêu nhãn để có 30 nhãn?",
+        options: ["5 nhãn", "10 nhãn", "15 nhãn", "20 nhãn"],
+        correctAnswer: "10 nhãn", // Bước 1: 45-15=30 nhãn; Bước 2: 30-10=20 còn lại; Bước 3: 30-20=10 cần thêm
       },
       {
         id: 57,
         question:
-          "Có 5 hộp bút chì màu, mỗi hộp có 10 chiếc. Người ta mua thêm 2 hộp nữa, mỗi hộp cũng 10 chiếc. Hỏi có tất cả bao nhiêu chiếc bút chì màu?",
-        options: ["70", "50", "60", "80"],
-        correctAnswer: "70",
+          "Một người bán hàng có 60 quả cam. Sáng bán được 25 quả, trưa bán được 15 quả. Hỏi chiều cần bán bao nhiêu quả nữa để bán hết số cam?",
+        options: ["15 quả", "20 quả", "25 quả", "30 quả"],
+        correctAnswer: "20 quả", // Bước 1: 60-25=35 quả; Bước 2: 35-15=20 quả; Bước 3: 20 quả cần bán
       },
       {
         id: 58,
         question:
-          "An có 35 viên bi. Bình có gấp đôi số bi của An. Hỏi cả hai bạn có tất cả bao nhiêu viên bi?",
-        options: ["105", "70", "85", "115"],
-        correctAnswer: "105", // An 35, Bình 70 => 35+70=105
+          "Hải có 30 viên bi. Nam cho Hải 15 viên và Minh cho Hải 10 viên. Hỏi bây giờ Hải có tất cả bao nhiêu viên bi?",
+        options: ["45 viên", "50 viên", "55 viên", "60 viên"],
+        correctAnswer: "55 viên", // Bước 1: 30+15=45 viên; Bước 2: 45+10=55 viên; Bước 3: 55 viên
       },
       {
         id: 59,
         question:
-          "Một cửa hàng có 100kg gạo. Buổi sáng bán được 30kg, buổi chiều bán được 40kg. Hỏi cửa hàng còn lại bao nhiêu kg gạo?",
-        options: ["30", "40", "50", "20"],
-        correctAnswer: "30",
+          "Một lớp học có 40 học sinh. Đầu năm có 5 bạn chuyển đi, cuối năm có 8 bạn chuyển đến. Hỏi cuối năm lớp có bao nhiêu học sinh?",
+        options: ["37 học sinh", "40 học sinh", "43 học sinh", "45 học sinh"],
+        correctAnswer: "43 học sinh", // Bước 1: 40-5=35 học sinh; Bước 2: 35+8=43 học sinh; Bước 3: 43 học sinh
       },
       {
         id: 60,
         question:
-          "Một người mang 50 quả trứng đi bán. Buổi sáng bán được một nửa số trứng. Buổi chiều bán được 15 quả. Hỏi người đó còn lại bao nhiêu quả trứng?",
-        options: ["10", "15", "20", "5"],
-        correctAnswer: "10", // 50/2 = 25. 25-15 = 10
+          "An có 25 que tính. Bình cho An 12 que, sau đó An cho Minh 7 que. Hỏi An còn lại bao nhiêu que tính?",
+        options: ["25 que", "28 que", "30 que", "32 que"],
+        correctAnswer: "30 que", // Bước 1: 25+12=37 que; Bước 2: 37-7=30 que; Bước 3: 30 que
       },
     ],
   },
   {
     topic: "Ôn tập biểu thức số",
     theory:
-      "Biểu thức số là dãy các phép tính gồm số và dấu phép toán. Cần thực hiện theo thứ tự ưu tiên.",
+      "Biểu thức số là dãy các phép tính gồm số và dấu phép toán.\n      Thứ tự thực hiện phép tính:\n      1. Tính trong ngoặc trước\n      2. Tính nhân, chia từ trái sang phải\n      3. Tính cộng, trừ từ trái sang phải\n      Cách giải:\n      - Đánh số thứ tự các phép tính cần thực hiện\n      - Tính từng bước theo thứ tự đã đánh số\n      - Thay kết quả vừa tính vào biểu thức và tiếp tục\n      - Kiểm tra lại kết quả cuối cùng",
     questions: [
       {
         id: 1,
@@ -503,7 +503,7 @@ const data = [
   {
     topic: "Biểu thức có chứa chữ",
     theory:
-      "Biểu thức có chứa chữ dùng chữ cái thay cho số. Khi biết giá trị chữ, thay vào để tính.",
+      "Biểu thức có chứa chữ dùng chữ cái thay cho số.\n      Cách giải:\n      Bước 1: Xác định giá trị của chữ cái trong đề bài\n      Bước 2: Thay số vào vị trí chữ cái trong biểu thức\n      Bước 3: Tính giá trị biểu thức theo thứ tự:\n      - Tính trong ngoặc trước\n      - Tính nhân, chia từ trái sang phải\n      - Tính cộng, trừ từ trái sang phải\n      Kiểm tra: Thực hiện lại phép tính với giá trị vừa tìm được",
     questions: [
       {
         id: 1,
@@ -947,9 +947,9 @@ const data = [
       {
         id: 9,
         question:
-          "Một mảnh vườn hình chữ nhật có chiều dài 20m, chiều rộng 10m. Một mảnh vườn hình vuông có cạnh 15m. Tìm trung bình cộng diện tích của hai mảnh vườn.",
-        options: ["180 m²", "187.5 m²", "190 m²", "200 m²"],
-        correctAnswer: "187.5 m²", // (20*10 + 15*15) / 2 = (200 + 225) / 2 = 425 / 2 = 212.5. Ah, câu này khó hơn lớp 4, cần đơn giản hóa hoặc sửa. Sửa lại:
+          "Tuần trước Mai đọc được 5 trang sách mỗi ngày, tuần này em đọc được 7 trang sách mỗi ngày. Hỏi trung bình mỗi ngày Mai đọc được bao nhiêu trang sách?",
+        options: ["4 trang", "5 trang", "6 trang", "7 trang"],
+        correctAnswer: "6 trang", // (5+7)/2 = 6
       },
       {
         id: 9,
